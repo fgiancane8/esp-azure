@@ -11,7 +11,7 @@
 #include "esp_event.h"
 #include "esp_log.h"
 #include "esp_attr.h"
-
+#include "sdkconfig.h"
 #include "lwip/err.h"
 #include "azure_c_shared_utility/agenttime.h"
 #include "azure_c_shared_utility/xlogging.h"
@@ -27,7 +27,7 @@ void initialize_sntp(void)
 	if(!sntp_initialized) {
 		printf("Initializing SNTP\n");
 		sntp_setoperatingmode(SNTP_OPMODE_POLL);
-		sntp_setservername(0, "pool.ntp.org");
+		sntp_setservername(0, CONFIG_AZURE_SDK_NTP_SERVER);
 		sntp_init();
 
 		sntp_initialized = 1;
