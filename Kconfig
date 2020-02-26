@@ -4,4 +4,12 @@ menu "Azure IoT Hub SDK"
     default y
     help
         Enable or disable all the logging functionalities for Azure IoT Hub SDK.
+
+    config AZURE_SDK_NTP_SERVER
+    string "NTP server (or pool) to synchronize date and time from"
+    default "pool.ntp.org"
+    help
+        Configure an NTP server (or a pool of NTP servers) from which the current
+        date and time is to be synchronized.
+
 endmenu
